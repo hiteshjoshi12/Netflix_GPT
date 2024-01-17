@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
+import {banner} from "../Utils/Constants"
 
 
 const Login = () => {
@@ -36,7 +37,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
+         
          
         })
         .catch((error) => {
@@ -69,7 +70,7 @@ const Login = () => {
       <Header/>
       <div className="absolute w-full min-h-screen">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/df6621a3-890c-4ca0-b698-90bd5152f3d1/20a59be7-7062-4991-bca0-805e9a7f2716/IN-en-20240107-trifectadaily-perspective_alpha_website_large.jpg"
+          src={banner}
           alt="NETFLIX"
           className="w-full h-full object-cover"
         />
