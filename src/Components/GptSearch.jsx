@@ -1,21 +1,24 @@
-import React from 'react'
-import Gptsearchbar from './Gptsearchbar'
-import Gptmoviesuggestions from './Gptmoviesuggestions'
-import { banner } from '../Utils/Constants'
+import React from 'react';
+import Gptsearchbar from './Gptsearchbar';
+import Gptmoviesuggestions from './Gptmoviesuggestions';
+import { banner } from '../Utils/Constants';
+
 const GptSearch = () => {
   return (
-    <div>
-      <div className="absolute w-full min-h-screen -z-10">
+    <div className="relative w-full h-screen">
+      <div className="absolute top-0 left-0 w-full h-full -z-10">
         <img
           src={banner}
           alt="NETFLIX"
           className="w-full h-full object-cover"
         />
       </div>
-      <Gptsearchbar />
-      <Gptmoviesuggestions />
+      <div className="relative z-10">
+        <Gptsearchbar />
+        <Gptmoviesuggestions />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default GptSearch
+export default GptSearch;
