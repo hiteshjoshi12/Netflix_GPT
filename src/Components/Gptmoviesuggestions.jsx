@@ -2,7 +2,7 @@ import React from 'react'
 
 const Gptmoviesuggestions = () => {
   return (
-    <div>Gptmoviesuggestions</div>
+    <div className='text-white'>Gptmoviesuggestions</div>
   )
 }
 
