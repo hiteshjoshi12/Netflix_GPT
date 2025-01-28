@@ -5,20 +5,20 @@ const MovieList = ({ title, movies }) => {
     text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 
   return (
-    <div className="mt-[70px] px-4 sm:px-6 lg:px-8 xl:px-12">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl py-4 text-white">{title}</h1>
+    <div className="mt-[80px]">
+      <h1 className="text-2xl md:text-4xl py-4 mx-4 md:py-0 md:font-bold text-white">{title}</h1>
       <div className="yolo flex overflow-x-auto scrollbar-hide space-x-4">
         <div className="flex space-x-4">
           {movies?.map((movie) => (
             <div
               key={movie.id}
-              className="w-64 sm:w-72 md:w-80 lg:w-96 xl:w-1/5  flex flex-col items-center justify-start rounded-lg p-4"
+              className="w-72 md:w-96 flex flex-col items-center justify-center rounded-lg p-4"
             >
               <MovieCard posterPath={movie.poster_path} />
-              <h2 className="text-white text-center p-2 font-medium text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+              <h2 className="text-white text-center p-2 font-medium text-base md:text-xl md:font-bold">
                 {movie.original_title}
               </h2>
-              <p className="text-white text-sm sm:text-base font-medium p-3">
+              <p className="text-white text-sm md:text-xl font-medium md:font-normal p-2 text-center">
                 {truncateText(movie.overview, 100)}
               </p>
             </div>

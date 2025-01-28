@@ -72,14 +72,14 @@ const Login = () => {
         <img
           src={banner}
           alt="NETFLIX"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover fixed"
         />
       </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className=" sm:w-2/3 md:w-1/2 lg:w-1/3 xl: w-2/5 absolute p-4 sm:p-8 bg-black my-24 sm:my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-80 md:w-[40%] absolute p-4 sm:p-8 bg-black my-24 sm:my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isloginform ? "Sign In" : "Sign Up"}
@@ -90,12 +90,12 @@ const Login = () => {
             <input
               type="text"
               placeholder="First Name"
-              className="p-4 my-4 w-full bg-[#333333]"
+              className="p-4 my-4 w-full bg-[#333333] rounded-md"
             />
             <input
               type="text"
               placeholder="Last Name"
-              className="p-4 my-4 w-full bg-[#333333]"
+              className="p-4 my-4 w-full bg-[#333333] rounded-md"
             />
           </div>
         )}
@@ -104,14 +104,14 @@ const Login = () => {
           type="text"
           placeholder="Email Address"
           autoComplete="username"
-          className="p-4 my-4 w-full bg-[#333333]"
+          className="p-4 my-4 w-full bg-[#333333] rounded-md"
         />
         <input
           ref={password}
           type="password"
           placeholder="Password"
           autoComplete="current-password"
-          className="p-4 my-4 w-full bg-[#333333]"
+          className="p-4 my-4 w-full bg-[#333333] rounded-md"
         />
         <p className="text-red-700">{errormsg}</p>
         <button

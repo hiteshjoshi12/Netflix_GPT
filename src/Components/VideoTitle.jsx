@@ -6,11 +6,10 @@ const VideoTitle = ({ title, overview }) => {
 
   return (
     <div className="w-screen aspect-video pt-[20%] px-6 sm:px-12 md:px-16 lg:px-24 absolute text-white bg-gradient-to-r from-black to-transparent">
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+      <h1 className="text-3xl md:text-5xl font-bold py-4 ">
         {title}
       </h1>
-      <p className="py-4 sm:py-6 text-sm sm:text-base md:text-lg lg:text-xl w-full sm:w-[50%] md:w-[40%] lg:w-[28%]">
-        {/* Truncate text for small and medium screens */}
+      <p className="py-4 text-sm md:text-2xl md:font-bold hidden md:block  sm:text-base w-full  ">
         {truncateText(overview, 80)}
       </p>
       <div className="flex flex-wrap items-center gap-4">
