@@ -34,16 +34,16 @@ const Header = () => {
       }
       return () => unsubscribe();
     });
-  }, []);
+  }, [dispatch, navigate]);
 
   const handleGptSearchClick = () => {
     dispatch(toggleGptSearchView());
-    setIsMenuOpen(false); // Close menu after clicking
+    setIsMenuOpen(false); 
   };
 
   const handellanguagechange = (e) => {
     dispatch(changeLanguage(e.target.value));
-    setIsMenuOpen(false); // Close menu after selecting a language
+    setIsMenuOpen(false); 
   };
 
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
