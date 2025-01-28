@@ -32,26 +32,23 @@ const Gptsearchbar = () => {
     const apiQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query: " +
       query +
-      ". only give me names of 8 movies, comma-separated like the example given ahead. Example result: Gadar, Sholay, Don, Golmal, DDLJ";
+      ". only give me names of 8 movies, comma-separated like the example given ahead. Example movies(always give result like this only): Gadar, Sholay, Don, Golmal, DDLJ";
 
     const result = await chatSession.sendMessage(apiQuery);
     const data = JSON.parse(result.response.text());
 
     console.log("API Response:", data);
-    
-    // Convert spaces to underscores in the search query to match the API response key format
-    const formattedQuery = query.replace(/\s+/g, "_"); // Replace spaces with underscores
-    
+        
     // Dynamically access the key based on the formatted query
-    const movieList = data[formattedQuery]; // Access the array dynamically using the formatted query as the key
-
+    const movieList = data.Recomended_movies; // Access the array dynamically using the formatted query as the key
+    const movieListArray = movieList.split(",");
     // Search each movie in TMDB API
-    const PromiseMovieDataArray = movieList.map((movie) =>
+    const PromiseMovieDataArray = movieListArray.map((movie) =>
       searchMovieTmdb(movie)
     );
     const tmdbResults = await Promise.all(PromiseMovieDataArray);
     dispatch(
-      addGeminiMovieReults({ moviename: movieList, movieresults: tmdbResults })
+      addGeminiMovieReults({ moviename: movieListArray, movieresults: tmdbResults })
     );
   };
 
