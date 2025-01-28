@@ -1,12 +1,14 @@
 import React, { useRef } from "react";
 import lang from "../Utils/LanguageConstants";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { chatSession } from "../Utils/AiMode";
 import { options } from "../Utils/Constants";
+import { addGeminiMovieReults } from "../Utils/gptSlice";
 
 const Gptsearchbar = () => {
   const langkey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+  const dispatch = useDispatch();
 
   //search movie in tmdb
   const searchMovieTmdb = async (movie) => {
@@ -35,29 +37,22 @@ const Gptsearchbar = () => {
     const result = await chatSession.sendMessage(apiQuery);
     const data = JSON.parse(result.response.text());
 
-    console.log("API Response:", data); // Log the full response object
-
+    console.log("API Response:", data);
+    
     // Convert spaces to underscores in the search query to match the API response key format
     const formattedQuery = query.replace(/\s+/g, "_"); // Replace spaces with underscores
-
+    
     // Dynamically access the key based on the formatted query
     const movieList = data[formattedQuery]; // Access the array dynamically using the formatted query as the key
-
-    // If the movie list doesn't exist or is not an array, log an error message and return
-    if (!movieList || !Array.isArray(movieList)) {
-      console.error("No movie list found for the query.");
-      return;
-    }
-
-    console.log("Movie List:", movieList); // Log the list of movies
 
     // Search each movie in TMDB API
     const PromiseMovieDataArray = movieList.map((movie) =>
       searchMovieTmdb(movie)
     );
     const tmdbResults = await Promise.all(PromiseMovieDataArray);
-
-    console.log("TMDB Results:", tmdbResults);
+    dispatch(
+      addGeminiMovieReults({ moviename: movieList, movieresults: tmdbResults })
+    );
   };
 
   return (
