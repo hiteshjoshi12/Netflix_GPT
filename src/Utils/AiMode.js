@@ -25,7 +25,7 @@ const generationConfig = {
       {
         role: "user",
         parts: [
-          {text: "\"Act as a Movie Recommendation system and suggest some movies for the funny indian movies only give me names of 8 movies, comma-separated like the example given ahead.\nRecomended_movies: Gadar, Sholay, Don, Golmal, DDLJ"},
+          {text: "\"Act as a Movie Recomendation system and suggest some movies for the funny indian movies only give me names of 8 movies, comma-separated like the example given ahead.\nRecomended_movies: Gadar, Sholay, Don, Golmal, DDLJ"},
         ],
       },
       {
