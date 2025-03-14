@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addTopRatedMovies } from "../Utils/movieSclice";
+import { addTopRatedMovies } from "../Utils/movieSlice";
 import { options } from "../Utils/Constants";
 import { useEffect } from "react";
 

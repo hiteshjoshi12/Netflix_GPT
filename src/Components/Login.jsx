@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
 import { checkvalidatedata } from "../Utils/Validate";
 import {
   createUserWithEmailAndPassword,
@@ -7,11 +6,14 @@ import {
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
 import {banner} from "../Utils/Constants"
+import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
   const [isloginform, setisloginform] = useState(true);
   const [errormsg, seterrmsg] = useState(null);
+
+  const navigate = useNavigate();
 
 
   const email = useRef(null);
@@ -37,6 +39,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          navigate("/browse");
          
          
         })
@@ -55,7 +58,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-         
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -67,7 +70,6 @@ const Login = () => {
 
   return (
     <div className="relative">
-      <Header/>
       <div className="absolute w-full min-h-screen">
         <img
           src={banner}
@@ -79,7 +81,7 @@ const Login = () => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="w-80 md:w-[40%] absolute p-4 sm:p-8 bg-black my-24 sm:my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-80 md:w-[40%] absolute p-4 sm:p-8 bg-black my-24 sm:my-28 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isloginform ? "Sign In" : "Sign Up"}

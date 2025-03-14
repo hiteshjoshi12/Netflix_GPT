@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import useMovieTrailer from "../Hooks/useMovieTrailer";
 
-const VideoBackgroun = ({ movieid }) => {
+const VideoBackground = ({ movieid }) => {
   const [trailerid, setTrailerId] = useState(null);
+  console.log("trailerid", trailerid);
 
   useMovieTrailer({ movieid, setTrailerId});
 
@@ -20,4 +21,4 @@ const VideoBackgroun = ({ movieid }) => {
   );
 };
 
-export default VideoBackgroun;
+export default VideoBackground;

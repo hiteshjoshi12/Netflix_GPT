@@ -17,14 +17,14 @@ const Browse = () => {
   useTopratedmovies();
   useUpcomingmovies();
 
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   return (
     <div>
-      <Header />
       {ShowGptSearch ? (
         <GptSearch />
       ) : (
         <>
-          <MainContainer />
+          <MainContainer data ={movies} />
           <SecondaryContainer />
         </>
       )}

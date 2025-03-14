@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import { options } from "../Utils/Constants";
 
-
-
 const useMovieTrailer = ({ movieid, setTrailerId }) => {
   const getMovieVideo = async () => {
     try {
@@ -15,6 +13,7 @@ const useMovieTrailer = ({ movieid, setTrailerId }) => {
         (video) => video.type === "Trailer"
       );
       const trailer = filterdata.length ? filterdata[0] : response.results[0];
+      console.log(movieid)
       setTrailerId(trailer ? trailer.key : null);
       
     } catch (error) {

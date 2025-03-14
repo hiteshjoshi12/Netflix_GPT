@@ -1,24 +1,17 @@
 import React from "react";
-import Login from "./Login";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
 import Browse from "./Browse";
-import { createBrowserRouter } from "react-router-dom";
-import { RouterProvider } from "react-router-dom";
+import Login from "./Login";
 
 const Body = () => {
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/browse",
-      element: <Browse />,
-    },
-  ]);
-
   return (
     <div className="min-h-screen">
-      <RouterProvider router={appRouter} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/browse" element={<Browse />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 };

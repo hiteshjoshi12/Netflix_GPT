@@ -1,18 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import VideoTitle from "./VideoTitle";
-import VideoBackgroun from "./VideoBackgroun";
+import VideoBackground from "./VideoBackground";
 
-const MainContainer = () => {
-  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  if (movies == null) return;
-  const mainMovie = movies[5];
+const MainContainer = ({ data }) => {
+  if (data == null) return;
+  const randomIndex = Math.floor(Math.random() * 10) + 1;
+  const mainMovie = data[randomIndex];
+  console.log("main movie" , mainMovie);
 
-  const {original_title , overview , id} = mainMovie;
+  const { original_title, overview, id } = mainMovie;
   return (
     <div>
-      <VideoTitle title = {original_title} overview ={overview} />
-      <VideoBackgroun movieid ={id}  />
+      <VideoTitle title={original_title} overview={overview} movieid ={id} />
+      <VideoBackground movieid={id} />
     </div>
   );
 };

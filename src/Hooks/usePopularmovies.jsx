@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addPopularMovies } from "../Utils/movieSclice";
+import { addPopularMovies } from "../Utils/movieSlice";
 import { options } from "../Utils/Constants";
 import { useEffect } from "react";
 

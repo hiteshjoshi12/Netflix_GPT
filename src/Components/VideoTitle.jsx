@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const VideoTitle = ({ title, overview }) => {
+const VideoTitle = ({ title, overview ,movieid }) => {
+  console.log("id",movieid);
   const truncateText = (text, maxLength) =>
     text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 
@@ -13,9 +15,11 @@ const VideoTitle = ({ title, overview }) => {
         {truncateText(overview, 80)}
       </p>
       <div className="flex flex-wrap items-center gap-4">
+        <Link to={`/watch/${movieid}`}>
         <button className="bg-white text-black py-2 px-6 sm:py-3 sm:px-8 md:py-4 md:px-11 text-sm sm:text-lg md:text-xl rounded-lg hover:opacity-70 transition-opacity">
           <i className="ri-play-fill"> Play</i>
         </button>
+        </Link>
         <button className="bg-[#333333] text-white py-2 px-6 sm:py-3 sm:px-8 md:py-4 md:px-11 text-sm sm:text-lg md:text-xl bg-opacity-70 rounded-lg hover:opacity-70 transition-opacity">
           <i className="ri-information-2-line"> More Info</i>
         </button>

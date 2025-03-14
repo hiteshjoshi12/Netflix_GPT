@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import MovieList from "./MovieList";
 
-const SecondaryContainer = () => {
+const SecondaryContainer = ({data}) => {
   const movies = useSelector((store) => store.movies);
 
   return (
