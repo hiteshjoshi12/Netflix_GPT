@@ -106,7 +106,7 @@ const Login = () => {
           type="text"
           placeholder="Email Address"
           autoComplete="username"
-          value={isloginform ? "demo@mail.com" : ""} 
+          value={isloginform ? "demo@gmail.com" : ""} 
           className="p-4 my-4 w-full bg-[#333333] rounded-md"
         />
         <input
