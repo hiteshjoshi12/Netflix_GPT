@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { changeLanguage } from "./ConfigSlice";
+import { changeLanguage } from "./ConfigSLice";
 import { SUPPORTED_LANGUAGES } from "../Utils/Constants";
 
 const LanguageSelector = ({ onClose }) => {
