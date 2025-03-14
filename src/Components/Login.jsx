@@ -106,6 +106,7 @@ const Login = () => {
           type="text"
           placeholder="Email Address"
           autoComplete="username"
+          value={isloginform ? "demo@mail.com" : ""} 
           className="p-4 my-4 w-full bg-[#333333] rounded-md"
         />
         <input
@@ -113,6 +114,7 @@ const Login = () => {
           type="password"
           placeholder="Password"
           autoComplete="current-password"
+          value={isloginform ? "Hiteshjoshi1@" : ""} 
           className="p-4 my-4 w-full bg-[#333333] rounded-md"
         />
         <p className="text-red-700">{errormsg}</p>
